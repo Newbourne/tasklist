@@ -7,10 +7,23 @@ function createLi() {
     return li;
 }
 
+inputTask.addEventListener('keypress', function(e){
+    if (e.keyCode === 13) {
+if (!inputTask.value) return;
+createTask (inputTask.value);
+    }
+});
+
+function cleanInput() {
+    inputTask.value = '';
+    inputTask.focus();
+}
+
 function createTask(inputText) {
     const li = createLi();
     li.innerText = inputText;
     task.appendChild(li);
+    cleanInput();
 }
 
 addTask.addEventListener('click', function() {
