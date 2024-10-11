@@ -7,6 +7,15 @@ function createLi() {
     return li;
 }
 
+function createDeleteButton(li) {
+    li.innerText += '               '
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Delete';
+    deleteButton.setAttribute('class', 'delete');
+    deleteButton.setAttribute('title', 'Delete this task');
+    li.appendChild(deleteButton);
+}
+
 inputTask.addEventListener('keypress', function(e){
     if (e.keyCode === 13) {
 if (!inputTask.value) return;
@@ -24,6 +33,7 @@ function createTask(inputText) {
     li.innerText = inputText;
     task.appendChild(li);
     cleanInput();
+    createDeleteButton(li);
 }
 
 addTask.addEventListener('click', function() {
