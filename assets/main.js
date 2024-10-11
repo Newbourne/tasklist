@@ -39,4 +39,12 @@ function createTask(inputText) {
 addTask.addEventListener('click', function() {
 if (!inputTask.value) return;
 createTask (inputTask.value);
+});
+
+document.addEventListener('click', function(e){
+    const el = e.target;
+
+    if (el.classList.contains('delete')){
+        el.parentElement.remove();
+    }
 })
